@@ -1,143 +1,129 @@
-Projeto Testes Vagas
+# Teste prático para Back-End / Front-End
+
 Este projeto é uma aplicação web full-stack que utiliza Laravel no backend com banco de dados MySQL e React no frontend, seguindo o padrão MVVM. Ele inclui um comando customizado para importar produtos de uma API externa diretamente para o banco de dados.
 
-Docker
-Tecnologias Utilizadas
-Backend: Laravel (PHP) com MySQL
-Frontend: React, utilizando o padrão MVVM
-Containers: Docker para facilitar a execução dos serviços
-Banco de Dados: MySQL
-Outros serviços: Redis, Mailpit, PhpMyAdmin
+##### CRUD produtos
 
-URLs da Aplicação
-Laravel (Backend): http://localhost:8989/
-React (Frontend): http://localhost:5173/
-PhpMyAdmin: http://localhost:8081/
+Aqui você deverá desenvolver as principais operações para o gerenciamento de um catálogo de produtos, sendo elas:
 
-Requisitos
-Para executar a aplicação, é necessário ter Docker e Docker Compose instalados na máquina.
-e necessario sempre que realizar mudanças  parar os container e recrialos para atualizar os mesmos para refletir as mudanças
+- Criação
+- Atualização
+- Exclusão
 
-Observações
+O produto deve ter a seguinte estrutura:
 
-Para o frontend, é necessário instalar as dependências dentro do diretório frontend/ para garantir que o node_modules seja gerado corretamente.
+Campo       | Tipo      | Obrigatório   | Pode se repetir
+----------- | :------:  | :------:      | :------:
+id          | int       | true          | false
+name        | string    | true          | false        
+price       | float     | true          | true
+decription  | text      | true          | true
+category    | string    | true          | true
+image_url   | url       | false         | true
 
-bash
+Os endpoints de criação e atualização devem seguir o seguinte formato de payload:
 
-npm install
+```json
+{
+    "name": "product name",
+    "price": 109.95,
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+    "category": "test",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+}
+```
 
-Iniciando a Aplicação
-Para facilitar o processo de inicialização da aplicação,
- existe um script chamado start.sh na raiz do projeto. Basta executá-lo no terminal para iniciar todos os serviços.
+**Importante:** Tanto os endpoints de criação é atualização, deverão ter uma camada de validação dos campos.
 
-bash
 
-./start.sh
+##### Importação de produtos de uma API externa
 
-Caso prefira, você pode iniciar os containers manualmente em cada diretório do projeto.
+É necessário que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que buscará produtos nessa API e armazenará os resultados para a sua base de dados. 
 
-Configurações Iniciais
+Sugestão: `php artisan products:import`
+
+Esse comando deverá ter uma opção de importar um único produto da API externa, que será encontrado através de um ID externo.
+
+Sugestão: `php artisan products:import --id=123`
+
+Utilize a seguinte API para importar os produtos: [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
+
+---
+
+
+## Tecnologias Utilizadas
+
+- **Docker**: Docker para facilitar a execução dos serviços
+- **Backend**: Laravel (PHP) com MySQL
+- **Frontend**: React, utilizando o padrão MVVM e typescript com eslint para manter o padrão de desenvolvimento
+- **Banco de Dados**: MySQL
+- **Outros serviços**: Redis, Mailpit, PhpMyAdmin
+
+## URLs da Aplicação
+
+- Laravel (Backend): [http://localhost:8989/](http://localhost:8989/)
+- React (Frontend): [http://localhost:5173/](http://localhost:5173/)
+- PhpMyAdmin: [http://localhost:8081/](http://localhost:8081/)
+
+## Requisitos
+
+Para executar a aplicação, é necessário ter Docker e Docker Compose instalados na máquina. Sempre que realizar mudanças, é necessário parar os containers e recriá-los para refletir as alterações. Para o frontend, instale as dependências dentro do diretório frontend/ com o comando npm install.
+
+## Iniciando a Aplicação
+
+Para iniciar todos os serviços, execute o script start.sh na raiz do projeto com o comando ./start.sh. Você também pode iniciar os containers manualmente em cada diretório do projeto.
+
+## Configurações Iniciais
+
 Antes de iniciar a aplicação, verifique se o arquivo .env existe no diretório backend/. Se não existir, crie um novo arquivo com as seguintes configurações:
 
-depois de um composer install na pasta backend para as dependencias do laravel 
-
-
-caso nao venho o arquivo .env 
-um exemplo abaixo ja com as configurações do banco que vai subir com docker
-
-env
-Copiar código
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:X8aC+ScUBO8QrMEF/xzhxa9q1K1leO82OBtLu/nMoWk=
-APP_DEBUG=true
-APP_URL=http://localhost
-
-LOG_CHANNEL=stack
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=laravel
-DB_PASSWORD=laravel
-
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-FILESYSTEM_DISK=local
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=mailpit
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS="hello@example.com"
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_HOST=
-PUSHER_PORT=443
-PUSHER_SCHEME=https
-PUSHER_APP_CLUSTER=mt1
-
-VITE_APP_NAME="${APP_NAME}"
-VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-VITE_PUSHER_HOST="${PUSHER_HOST}"
-VITE_PUSHER_PORT="${PUSHER_PORT}"
-VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
-VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+DB_PASSWORD=laravel  
 
 
-
-Inicie a aplicação usando o script start.sh ou manualmente conforme descrito acima.
+##  Inicie a aplicação usando o script start.sh ou manualmente conforme descrito acima.
 
 Verifique se todos os containers estão funcionando corretamente.
 
 Acesse o bash do container do Laravel executando o seguinte comando:
 
-bash
+--bash
 
-docker exec -it <nome_do_container_laravel> bash
+docker exec -it backend-app-1 bash 
+esse eo nome do container na minha maquina
 
 Substitua <nome_do_container_laravel> pelo nome real do container do Laravel, que pode ser encontrado usando docker ps.
 
 Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando:
 
-bash
+-- bash
 
 php artisan migrate
 
 
+##### Importação de produtos de uma API externa
 
-Importando Produtos
 Para importar um produto da API externa, siga os passos abaixo:
 
 Acesse o bash do container do Laravel conforme descrito anteriormente.
 
+- bash
+
+docker exec -it backend-app-1 bash
+
 Execute o seguinte comando para importar um produto:
 
-bash
+- bash
 
 php artisan app:import-product 1
 
-O número 1 refere-se ao ID do produto a ser importado mais pode ser qualquer numero inteiro.
+O número 1 refere-se ao ID do produto a ser importado mais pode ser qualquer id
+
+ajusta
+
+caso as mudanças feitas ao estalar tente para e rodar novamente os containers 
