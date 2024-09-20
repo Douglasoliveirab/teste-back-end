@@ -52,7 +52,7 @@ Os endpoints de criação e atualização seguem o seguinte formato de payload:
 **Importante:** Tanto os endpoints de criação é atualização, tem uma camada de validação dos campos.
 
 
-##### Importação de produtos de uma API externa com um comando artisan no bash do container docker
+##### Importação de produtos de uma API externa com um comando artisan no bash do container do laravel
 
 o Comando deve ser inserido no terminal do container laravel : `php artisan app:import-product 1`
 
