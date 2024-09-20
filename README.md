@@ -59,11 +59,11 @@ Utilizando a seguinte API para importar os produtos: [https://fakestoreapi.com/d
 
 ## Requisitos
 
-Para executar a aplicação, é necessário ter Docker e Docker Compose instalados na máquina. Sempre que realizar mudanças, é necessário parar os containers e recriá-los para refletir as alterações. Para o frontend, instale as dependências dentro do diretório frontend/ com o comando npm install.
+Para executar a aplicação, é necessário ter Docker e Docker Compose instalados na máquina. Sempre que realizar mudanças, é necessário parar os containers e recriá-los para refletir as alterações. Para o frontend, instale as dependências dentro do diretório frontend/ com o comando npm install
 
 ## Iniciando a Aplicação
 
-Para iniciar todos os serviços, execute o script start.sh na raiz do projeto com o comando ./start.sh. Você também pode iniciar os containers manualmente em cada diretório do projeto.
+Para iniciar todos os serviços, execute o script start.sh na raiz do projeto com o comando ./start.sh Você também pode iniciar os containers manualmente em cada diretório do projeto.
 
 ## Configurações Iniciais
 
