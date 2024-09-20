@@ -2,6 +2,22 @@
 
 Este projeto é uma aplicação web full-stack que utiliza Laravel no backend com banco de dados MySQL e React no frontend, seguindo o padrão MVVM. Ele inclui um comando customizado para importar produtos de uma API externa diretamente para o banco de dados.
 
+
+## Tecnologias Utilizadas
+
+- **Docker**: Docker para facilitar a execução dos serviços
+- **Backend**: Laravel (PHP) com MySQL
+- **Frontend**: React, utilizando o padrão MVVM e typescript com eslint para manter o padrão de desenvolvimento
+- **Banco de Dados**: MySQL
+- **Outros serviços**: Redis, Mailpit, PhpMyAdmin
+
+## URLs da Aplicação
+
+- Laravel (Backend): [http://localhost:8989/](http://localhost:8989/)
+- React (Frontend): [http://localhost:5173/](http://localhost:5173/)
+- PhpMyAdmin: [http://localhost:8081/](http://localhost:8081/)
+
+
 ##### CRUD produtos
 
 - Criação
@@ -41,21 +57,6 @@ o Comando deve ser inserido no terminal do container laravel : `php artisan app:
 Utilizando a seguinte API para importar os produtos: [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
 
 ---
-
-
-## Tecnologias Utilizadas
-
-- **Docker**: Docker para facilitar a execução dos serviços
-- **Backend**: Laravel (PHP) com MySQL
-- **Frontend**: React, utilizando o padrão MVVM e typescript com eslint para manter o padrão de desenvolvimento
-- **Banco de Dados**: MySQL
-- **Outros serviços**: Redis, Mailpit, PhpMyAdmin
-
-## URLs da Aplicação
-
-- Laravel (Backend): [http://localhost:8989/](http://localhost:8989/)
-- React (Frontend): [http://localhost:5173/](http://localhost:5173/)
-- PhpMyAdmin: [http://localhost:8081/](http://localhost:8081/)
 
 ## Requisitos
 
