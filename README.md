@@ -4,13 +4,11 @@ Este projeto é uma aplicação web full-stack que utiliza Laravel no backend co
 
 ##### CRUD produtos
 
-Aqui você deverá desenvolver as principais operações para o gerenciamento de um catálogo de produtos, sendo elas:
-
 - Criação
 - Atualização
 - Exclusão
 
-O produto deve ter a seguinte estrutura:
+com a seguinte estrutura:
 
 Campo       | Tipo      | Obrigatório   | Pode se repetir
 ----------- | :------:  | :------:      | :------:
@@ -21,7 +19,7 @@ decription  | text      | true          | true
 category    | string    | true          | true
 image_url   | url       | false         | true
 
-Os endpoints de criação e atualização devem seguir o seguinte formato de payload:
+Os endpoints de criação e atualização seguem o seguinte formato de payload:
 
 ```json
 {
@@ -33,20 +31,14 @@ Os endpoints de criação e atualização devem seguir o seguinte formato de pay
 }
 ```
 
-**Importante:** Tanto os endpoints de criação é atualização, deverão ter uma camada de validação dos campos.
+**Importante:** Tanto os endpoints de criação é atualização, tem uma camada de validação dos campos.
 
 
-##### Importação de produtos de uma API externa
+##### Importação de produtos de uma API externa com um comando artisan no bash do container docker
 
-É necessário que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que buscará produtos nessa API e armazenará os resultados para a sua base de dados. 
+o Comando deve ser inserido no terminal do container laravel : `php artisan app:import-product 1`
 
-Sugestão: `php artisan products:import`
-
-Esse comando deverá ter uma opção de importar um único produto da API externa, que será encontrado através de um ID externo.
-
-Sugestão: `php artisan products:import --id=123`
-
-Utilize a seguinte API para importar os produtos: [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
+Utilizando a seguinte API para importar os produtos: [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
 
 ---
 
