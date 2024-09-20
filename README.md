@@ -19,19 +19,31 @@ Para executar a aplicação, é necessário ter Docker e Docker Compose instalad
 e necessario sempre que realizar mudanças  parar os container e recrialos para atualizar os mesmos para refletir as mudanças
 
 Observações
-Você não precisa instalar PHP, Composer, ou Node.js globalmente, pois o Docker gerencia essas dependências dentro dos containers.
+
 Para o frontend, é necessário instalar as dependências dentro do diretório frontend/ para garantir que o node_modules seja gerado corretamente.
+
+bash
+
+npm install
 
 Iniciando a Aplicação
 Para facilitar o processo de inicialização da aplicação,
  existe um script chamado start.sh na raiz do projeto. Basta executá-lo no terminal para iniciar todos os serviços.
 
+bash
 
+./start.sh
 
 Caso prefira, você pode iniciar os containers manualmente em cada diretório do projeto.
 
 Configurações Iniciais
 Antes de iniciar a aplicação, verifique se o arquivo .env existe no diretório backend/. Se não existir, crie um novo arquivo com as seguintes configurações:
+
+depois de um composer install na pasta backend para as dependencias do laravel 
+
+
+caso nao venho o arquivo .env 
+um exemplo abaixo ja com as configurações do banco que vai subir com docker
 
 env
 Copiar código
@@ -96,6 +108,7 @@ VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 
+
 Inicie a aplicação usando o script start.sh ou manualmente conforme descrito acima.
 
 Verifique se todos os containers estão funcionando corretamente.
@@ -113,6 +126,7 @@ Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando:
 bash
 
 php artisan migrate
+
 
 
 Importando Produtos
