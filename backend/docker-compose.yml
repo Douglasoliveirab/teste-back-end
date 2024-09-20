@@ -1,0 +1,85 @@
+version: '3'
+
+services:
+  app:
+      build:
+          context: .
+          dockerfile: Dockerfile
+      restart: unless-stopped
+      working_dir: /var/www/
+      volumes:
+          - ./:/var/www
+      depends_on:
+          - redis
+      networks:
+          - laravel
+
+  # Serviço do Nginx
+  nginx:
+      image: nginx:alpine
+      restart: unless-stopped
+      ports:
+          - "8989:80"
+      volumes:
+          - ./:/var/www
+          - ./docker/nginx/:/etc/nginx/conf.d/
+      depends_on:
+          - app # Certifique-se de que o app está rodando antes do nginx
+      networks:
+          - laravel
+
+  # Serviço do banco de dados MySQL
+  db:
+      image: mysql:latest
+      ports:
+          - "3306:3306"
+      environment:
+          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_DATABASE: 'laravel'
+          MYSQL_USER: 'laravel' # Defina o usuário se quiser garantir que está usando 'root'
+          MYSQL_PASSWORD: 'laravel' # Defina a senha para o usuário
+      command: --user=root --explicit_defaults_for_timestamp=1
+      volumes:
+          - db_data:/var/lib/mysql
+      networks:
+          - laravel
+
+  # Serviço do phpMyAdmin
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+          - "8081:80"
+      environment:
+          PMA_HOST: db
+          PMA_PORT: 3306
+      depends_on:
+          - db
+      networks:
+          - laravel
+
+  # Serviço da fila (Queue) do Laravel
+  queue:
+      image: especializati/laravel9-app
+      restart: unless-stopped
+      command: "php artisan queue:work"
+      volumes:
+          - ./:/var/www
+      depends_on:
+          - redis
+          - app
+      networks:
+          - laravel
+
+  # Serviço do Redis
+  redis:
+      image: redis:latest
+      networks:
+          - laravel
+
+volumes:
+    db_data: # Volume para persistir os dados do MySQL
+        driver: local
+
+networks:
+    laravel:
+        driver: bridge
