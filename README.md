@@ -1,6 +1,8 @@
 # Teste prático para Back-End / Front-End
 
-Este projeto é uma aplicação web full-stack que utiliza Laravel no backend com banco de dados MySQL e React no frontend, seguindo o padrão MVVM. Ele inclui um comando customizado para importar produtos de uma API externa diretamente para o banco de dados.
+Este projeto é uma aplicação web full-stack que utiliza Laravel no backend com banco de dados MySQL e React no frontend, seguindo o padrão MVVM.
+Ele inclui um comando artisan do laravel customizado para importar produtos de uma API externa  [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
+diretamente para o banco de dados.
 
 
 ## Tecnologias Utilizadas
@@ -87,7 +89,7 @@ Acesse o bash do container do Laravel executando o seguinte comando:
 
 --bash
 
-docker exec -it backend-app-1 bash 
+`docker exec -it backend-app-1 bash`
 esse eo nome do container na minha maquina
 
 Substitua <nome_do_container_laravel> pelo nome real do container do Laravel, que pode ser encontrado usando docker ps.
@@ -96,7 +98,7 @@ Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando:
 
 -- bash
 
-php artisan migrate
+`php artisan migrate`
 
 
 ##### Importação de produtos de uma API externa
@@ -107,13 +109,13 @@ Acesse o bash do container do Laravel conforme descrito anteriormente.
 
 - bash
 
-docker exec -it backend-app-1 bash
+`docker exec -it backend-app-1 bash`
 
 Execute o seguinte comando para importar um produto:
 
 - bash
 
-php artisan app:import-product 1
+`php artisan app:import-product 1`
 
 O número 1 refere-se ao ID do produto a ser importado mais pode ser qualquer id
 
