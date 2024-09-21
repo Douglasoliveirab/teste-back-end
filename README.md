@@ -70,6 +70,10 @@ Para o frontend, instale as dependências dentro do diretório frontend/ com o c
 
 `npm install`
 
+para o backend 
+
+`composer install`
+
 ## Iniciando a Aplicação
 
 Para iniciar todos os serviços, execute o script start.sh na raiz do projeto com o comando lembrando você deve estar na raiz da aplicação fora de frontend e backend
@@ -101,6 +105,7 @@ Acesse o bash do container do Laravel executando o seguinte comando:
 esse eo nome do container na minha maquina
 
 Substitua <nome_do_container_laravel> pelo nome real do container do Laravel, que pode ser encontrado usando docker ps.
+
 
 Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando:
 
