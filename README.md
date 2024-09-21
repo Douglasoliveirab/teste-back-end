@@ -11,7 +11,7 @@ diretamente para o banco de dados.
 - **Backend**: Laravel (PHP) com MySQL
 - **Frontend**: React, utilizando o padrão MVVM e typescript com eslint para manter o padrão de desenvolvimento
 - **Banco de Dados**: MySQL
-- **Outros serviços**: Redis, Mailpit, PhpMyAdmin
+- **Outros serviços**: Redis, PhpMyAdmin
 
 ## URLs da Aplicação
 
