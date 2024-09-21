@@ -107,7 +107,7 @@ esse eo nome do container na minha maquina
 Substitua <nome_do_container_laravel> pelo nome real do container do Laravel, que pode ser encontrado usando docker ps.
 
 
-Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando:
+Conecte-se ao banco de dados e crie as tabelas necessárias rodando o comando esse comando também deve ser no container descrito acima:
 
 -- bash
 
