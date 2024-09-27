@@ -1,4 +1,4 @@
-# Teste prático para Back-End / Front-End
+# Teste prático para Back-End 
 
 Este projeto é uma aplicação web full-stack que utiliza Laravel no backend com banco de dados MySQL e React no frontend, seguindo o padrão MVVM.
 Ele inclui um comando artisan do laravel customizado para importar produtos de uma API externa  [https://fakestoreapi.com/docs](https://fakestoreapi.com/docs)
