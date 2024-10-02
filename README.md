@@ -8,7 +8,7 @@ diretamente para o banco de dados.
 ## Tecnologias Utilizadas
 
 - **Docker**: Docker para facilitar a execução dos serviços
-- **Backend**: Laravel (PHP) com MySQL
+- **Backend**: Laravel (PHP)
 - **Frontend**: React, utilizando o padrão MVVM e typescript com eslint para manter o padrão de desenvolvimento
 - **Banco de Dados**: MySQL
 - **Outros serviços**: Redis, PhpMyAdmin
